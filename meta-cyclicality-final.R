@@ -529,12 +529,6 @@ summary(MRA_TaxRevenueGap_1)
 coef_test(MRA_SemiBalanceGrowth_1, vcov = "CR0", 
           cluster = dat_2p98p_SemiBalanceGrowth$id, test = "naive-t")
 
-#save figure
-ggsave(plot = plot_funnel_partialcorr, 
-       filename = paste0(here("figures/funnel_w2_98"), 
-                         ".pdf"),
-       width = 6.5, height = 4)
-
 #preparing latex tables
 ses_MRA_partial_1 <- list(coef_test(MRA_partial_1, vcov = "CR0", cluster = dat_long_corrected$id, test = "naive-t")[,3]) #heteroskedasticity-robust standard errors
 tvals_MRA_partial_1 <- list(coef_test(MRA_partial_1, vcov = "CR0", cluster = dat_long_corrected$id, test = "naive-t")[,4]) #heteroskedasticity-robust t-values "group" ("time") accounts for serial (cross-sectional) correlation.
@@ -596,12 +590,6 @@ summary(MRA_TaxRevenueGap_2)
 coef_test(MRA_TaxRevenueGap_2, vcov = "CR0", 
           cluster = dat_2p98p_TaxRevenueGap$id, test = "naive-t")
 
-#save figure
-#ggsave(plot = plot_funnel_CorrelationCoefficientCorrected_2p98p, 
- #      filename = paste0(here("figures/funnel_w2_98"), 
-   #                      ".pdf"),
-  #     width = 6.5, height = 4)
-
 #preparing latex tables
 ses_MRA_partial_2 <- list(coef_test(MRA_partial_2, vcov = "CR0", cluster = dat_long_corrected$id, test = "naive-t")[,3]) #heteroskedasticity-robust standard errors
 tvals_MRA_partial_2 <- list(coef_test(MRA_partial_2, vcov = "CR0", cluster = dat_long_corrected$id, test = "naive-t")[,4]) #heteroskedasticity-robust t-values "group" ("time") accounts for serial (cross-sectional) correlation.
@@ -662,12 +650,6 @@ summary(MRA_TaxRevenueGap_3)
 coef_test(MRA_SemiBalanceGrowth_3, vcov = "CR0", 
           cluster = dat_2p98p_SemiBalanceGrowth$id, test = "naive-t")
 
-#save figure
-ggsave(plot = plot_funnel_partialcorr, 
-       filename = paste0(here("figures/funnel_w2_98"), 
-                         ".pdf"),
-       width = 6.5, height = 4)
-
 #preparing latex tables
 ses_MRA_partial_3 <- list(coef_test(MRA_partial_3, vcov = "CR0", cluster = dat_long_corrected$id, test = "naive-t")[,3]) #heteroskedasticity-robust standard errors
 tvals_MRA_partial_3 <- list(coef_test(MRA_partial_3, vcov = "CR0", cluster = dat_long_corrected$id, test = "naive-t")[,4]) #heteroskedasticity-robust t-values "group" ("time") accounts for serial (cross-sectional) correlation.
@@ -726,12 +708,6 @@ summary(MRA_TaxRevenueGap_4)
 
 coef_test(MRA_SemiBalanceGrowth_4, vcov = "CR0", 
           cluster = dat_2p98p_SemiBalanceGrowth$id, test = "naive-t")
-
-#save figure
-ggsave(plot = plot_funnel_partialcorr, 
-       filename = paste0(here("figures/funnel_w2_98"), 
-                         ".pdf"),
-       width = 6.5, height = 4)
 
 #preparing latex tables
 ses_MRA_partial_4 <- list(coef_test(MRA_partial_4, vcov = "CR0", cluster = dat_long_corrected$id, test = "naive-t")[,3]) #heteroskedasticity-robust standard errors
@@ -841,9 +817,6 @@ fig_time_trends <- ggpubr::ggarrange(
   m1, m1_pubyear, ncol = 1, nrow=2, labels = c("A)", "B)"), 
   common.legend = TRUE, legend = "bottom")
 fig_time_trends
-
-filename <- "figures/fig_time_trends.pdf"
-ggsave(filename, plot = fig_time_trends, width = 10, height = 8)
 
 mean(dat_2p98p$PartialCorrelationCoefficient)
 sd(dat_2p98p$PartialCorrelationCoefficient)
